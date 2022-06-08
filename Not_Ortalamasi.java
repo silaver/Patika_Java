@@ -31,5 +31,6 @@ public class Main {
         gecme = (sonuc > 60) ? "Sinifi Gecti" : "Sinifta Kaldi";
 
         System.out.print(gecme);
+        
     }
 }

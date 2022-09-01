@@ -4,7 +4,8 @@ public class Course {
     String name;
     String code;
     String prefix;
-    int note;
+    int yazili;
+    int sozlu;
 
     //Constructor
     Course(String name, String code, String prefix){
@@ -12,7 +13,8 @@ public class Course {
         this.code = code;
         this.prefix = prefix;
         this.teacher = teacher;
-        int note = 0;
+        int yazili = 0;
+        int sozlu = 0;
     }
     //Methods
     void addTeacher(Teacher teacher){

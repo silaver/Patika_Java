@@ -8,6 +8,19 @@ public class Student {
     String classes;
     double average;
     boolean isPass;
+    int not1;
+    int not2;
+    int not3;
+    int sozluNot1;
+    int sozluNot2;
+    int sozluNot3;
+    double averageMat;
+    double averageFizik;
+    double averageKimya;
+    double averageGenel;
+
+
+
     //Constructors
     Student(String name, String stuNo, String classes, Course c1, Course c2, Course c3){
         this.name = name;
@@ -21,36 +34,58 @@ public class Student {
     }
 
     //Methods
-    void addBulkExamNote(int note1, int note2, int note3){
-        if(note1 >= 0 && note1 <= 100){
-            c1.note = note1;
+    void addBulkExamNote(int not1, int not2, int not3) {
+        if (not1 >= 0 && not1 <= 100) {
+            this.not1 = not1;
         }
-        if(note2 >= 0 && note2 <= 100){
-            c2.note = note2;
+        if (not2 >= 0 && not2 <= 100) {
+            this.not2 = not2;
         }
-        if(note3 >= 0 && note3 <= 100){
-            c3.note = note3;
+        if (not3 >= 0 && not3 <= 100) {
+            this.not3 = not3;
         }
     }
 
-    void isPass(){
-        System.out.println("**********************************");
-        this.average = (this.c1.note + this.c2.note + this.c3.note) / 3.0;
-        if(this.average > 55){
-            this.isPass = true;
-            System.out.println("Sinifi Gectiniz Tebrikler");
-        }else{
-            this.isPass = false;
-            System.out.println("Sinifta kaldiniz:(((");
+    void addBulkExamSozluNote(int sozluNot1, int sozluNot2, int sozluNot3) {
+        if (sozluNot1 >= 0 && sozluNot1 <= 100) {
+            this.sozluNot1 = sozluNot1;
         }
-        printNote();
+        if (sozluNot2 >= 0 && sozluNot2 <= 100) {
+            this.sozluNot2 = sozluNot2;
+        }
+        if (sozluNot3 >= 0 && sozluNot3 <= 100) {
+            this.sozluNot3 = sozluNot3;
+        }
+    }
+
+
+
+    void avarage() {
+        this.averageMat = (this.not1 * 0.8) + (this.sozluNot1 * 0.2);
+        this.averageFizik = (this.not2 * 0.8) + (this.sozluNot2 * 0.2);
+        this.averageKimya = (this.not3 * 0.8) + (this.sozluNot3 * 0.2);
+        this.averageGenel = (this.averageFizik + this.averageKimya + this.averageMat) / 3.0;
+        System.out.println("Genel ortalama: "+ this.averageGenel);
     }
 
     void printNote(){
         System.out.println("Öğrenci : " + this.name);
-        System.out.println(c1.name + " Notu:\t " + this.c1.note);
-        System.out.println(c2.name + " Notu:\t " + this.c2.note);
-        System.out.println(c3.name + " Notu:\t " + this.c3.note);
+        System.out.println(c1.name + " Notu:\t " + this.c1.yazili);
+        System.out.println(c1.name + " Notu:\t " + this.c1.sozlu);
+        System.out.println(c2.name + " Notu:\t " + this.c2.yazili);
+        System.out.println(c2.name + " Notu:\t " + this.c2.sozlu);
+        System.out.println(c3.name + " Notu:\t " + this.c3.yazili);
+        System.out.println(c3.name + " Notu:\t " + this.c3.sozlu);
         System.out.println("Ortalamaniz:\t " + this.average);
+    }
+    void isPass(){
+        if (this.averageGenel >= 50){
+            System.out.println("Sinifi gectiniz");
+            this.isPass = true;
+        }
+        else {
+            System.out.println("Sinifta kaldiniz");
+            this.isPass = false;
+        }
     }
 }

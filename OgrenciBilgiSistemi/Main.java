@@ -14,11 +14,15 @@ public class Main {
         biyo.addTeacher(t3);
 
         Student s1 = new Student("Inek Saban", "123", "4", tarih, fizik, biyo);
-        s1.addBulkExamNote(100, 67, 50);
-        s1.isPass();
+        s1.addBulkExamNote(16, 87, 100);
+        s1.addBulkExamSozluNote(64, 12, 98);
+        s1.avarage();
+        System.out.println();
 
         Student s2 = new Student("Necmi", "444", "4", tarih, fizik, biyo);
-        s2.addBulkExamNote(50, 30, 70);
-        s2.isPass();
+        s2.addBulkExamNote(39, 20, 14);
+        s2.addBulkExamSozluNote(95, 85, 75);
+        s2.avarage();
+
     }
 }
